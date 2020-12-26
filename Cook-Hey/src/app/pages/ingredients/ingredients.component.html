@@ -1,0 +1,40 @@
+<div *ngIf="(ingredients$ | async) as ingredients" class="m-auto">
+  <div class="row">
+    <h1 class="col-3">Ingrédients</h1>
+    <div class="col-6"></div>
+    <div class="col-3 d-flex align-items-center">
+      <button class="btn btn__add m-auto" data-bs-toggle="modal" data-bs-target="#addIngredientModal">ADD</button>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID:</th>
+      <th>Nom:</th>
+      <th>Unité de mesure:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ingredient of ingredients">
+      <td>{{ingredient.id}}</td>
+      <td>{{ingredient.name}}</td>
+      <td>{{ingredient.measureUnit}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="addIngredientModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="addIngredientModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-add-ingredient></app-add-ingredient>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn__search" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

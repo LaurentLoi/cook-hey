@@ -1,0 +1,7 @@
+#Personal excludes
+
+**/Ressources/**
+
+**/node_modules/**
+
+**/.idea/**

@@ -1,0 +1,75 @@
+<div *ngIf="(recipes$ | async) as recipes" class="mx-auto my-3 bg__1 container">
+
+  <div class="row">
+
+    <div class="col-10">
+      <h1>Recettes</h1>
+    </div>
+
+    <div class="col-2 d-flex align-items-center">
+      <button class="btn btn__add m-auto" data-bs-toggle="modal" data-bs-target="#addRecipeModal">ADD</button>
+    </div>
+
+  </div>
+
+  <div class="row g-0">
+    <div class="bg__2 col-3">1</div>
+    <div class="bg__2 col-3">2</div>
+    <div class="bg__2 col-3">3</div>
+    <div class="bg__2 col-3">4</div>
+  </div>
+</div>
+
+
+<div *ngIf="(recipes$ | async) as recipes" class="mx-auto my-3 border__base">
+  <div class="row">
+    <h1 class="col-3">Recettes</h1>
+    <div class="col-5"></div>
+    <div class="col-3 d-flex align-items-center">
+      <button class="btn btn__add m-auto" data-bs-toggle="modal" data-bs-target="#addRecipeModal">ADD</button>
+    </div>
+  </div>
+  <table class="table border" *ngFor="let recipe of recipes">
+    <thead>
+    <tr>
+      <th>Titre:</th>
+      <th>Auteur:</th>
+      <th>Difficulté:</th>
+      <th>Durée:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container>
+      <tr>
+        <td>{{recipe.title}}</td>
+        <td>{{recipe.author}}</td>
+        <td>{{recipe.difficulty}}</td>
+        <td>{{recipe.duration}}</td>
+      </tr>
+      <h3>Ingredients</h3>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>name</th>
+          <th>quantity</th>
+          <th>measure unit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let ingredient of recipe.ingredients">
+          <tr>
+            <app-recipe-ingredient-display [ingredient]="ingredient"></app-recipe-ingredient-display>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+      <h3>Instructions</h3>
+      <tr *ngFor="let instruction of recipe.instructions">
+        <td></td>
+        <td>{{instruction}}</td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+

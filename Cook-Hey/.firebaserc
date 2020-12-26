@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cook-hey": {
+      "hosting": {
+        "Cook-Hey": [
+          "cook-hey"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cook-hey"
+  }
+}

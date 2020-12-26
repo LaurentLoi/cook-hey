@@ -1,0 +1,38 @@
+<div class="">
+<nav class="navbar navbar-expand-lg bg__dark">
+  <div class="container-fluid">
+    <a class="navbar-brand link-secondary" href="#">Cook-Hey</a>
+    <button class="navbar-toggler btn__menu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/index" (click)="selectLink($event)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ingredients" (click)="selectLink($event)">Ingredients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/recipes" (click)="selectLink($event)">Recipes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" (click)="selectLink($event)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu bg__dark border__dropdown" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" (click)="selectLink($event)">Action</a></li>
+            <li><a class="dropdown-item" (click)="selectLink($event)">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="selectLink($event)">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="bg__dark menu border__base p-1 m-1" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn__search p-1 m-1" type="submit" >Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
