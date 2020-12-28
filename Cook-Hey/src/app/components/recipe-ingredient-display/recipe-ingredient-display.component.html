@@ -1,9 +1,10 @@
 
-  <ng-container *ngIf="(ingredient$ | async) as ing">
-    <td></td>
-    <td>{{ing.name}}</td>
-    <td>{{ingredient['quantity']}}</td>
-    <td>{{ing.measureUnit}}</td>
-  </ng-container>
+<ng-container *ngIf="(ingredient$ | async) as ing">
+  <div>
+    <p class="ms-3 my-2">{{ing.name}}: {{ingredient['quantity']}} {{ing.measureUnit}}</p>
+  </div>
+</ng-container>
+
+
 
 
