@@ -15,6 +15,7 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { RecipeIngredientDisplayComponent } from './components/recipe-ingredient-display/recipe-ingredient-display.component';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RecipeIngredientDisplayComponent } from './components/recipe-ingredient
     IngredientsComponent,
     AddIngredientComponent,
     RecipesComponent,
-    RecipeIngredientDisplayComponent
+    RecipeIngredientDisplayComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,
