@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {BehaviorSubject, Observable, of} from "rxjs";
-import {filter, tap} from "rxjs/operators";
+import {tap} from "rxjs/operators";
 import {Ingredient} from "../../models/ingredient.model";
 
 @Injectable({
@@ -16,15 +16,12 @@ export class IngredientsService {
     private firestore: AngularFirestore
   ) {
     // LOAD INGREDIENTS COLLECTION - SORTED BY ID
-    // @ts-ignore
-    this.ingredients$ = (firestore.collection('ingredients').valueChanges()).pipe(
+    this.ingredients$ = (firestore.collection<Ingredient>('ingredients').valueChanges()).pipe(
       tap(ingredients => {
         ingredients.sort((a, b) => {
-          // @ts-ignore
           if (a.id > b.id) {
             return 1;
           }
-          // @ts-ignore
           if (a.id < b.id) {
             return -1;
           }
@@ -38,7 +35,7 @@ export class IngredientsService {
     this.firestore.collection('ingredients').doc(newIngredient.id).set(newIngredient).then();
   }
 
-  // @ts-ignore
+
   getByIngredientId(id: string): Observable<Ingredient> {
     (this.firestore.collection<Ingredient>('ingredients').doc(id).ref.get().then(doc => {
       if (doc.exists){
@@ -50,5 +47,6 @@ export class IngredientsService {
     }).catch(err => {
       console.log(' in getting doc by id: ' + err);
     }));
+    return null;
   }
 }
