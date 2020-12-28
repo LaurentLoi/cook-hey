@@ -22,21 +22,29 @@
       </div>
     </div>
 
+    <!--RECIPE TITLE SECTION-->
 
     <div class="row border__bottom">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
+        <h4 class="text__center">Catégorie: </h4>
+        <p class="text__center">{{recipe.category}}</p>
+      </div>
+      <div class="col-sm-3">
         <h4 class="text__center">Temps: </h4>
         <p class="text__center">{{recipe.duration}} minutes</p>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <h4 class="text__center">Difficulté: </h4>
         <p class="text__center">{{recipe.difficulty}}</p>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <h4 class="text__center">Personnes: </h4>
-        <p class="text__center">{{recipe.duration}} minutes</p>
+        <p class="text__center">{{recipe.personNumber}}</p>
       </div>
     </div>
+
+
+    <!--RECIPE CONTENT SECTION-->
 
     <!--Ingredients - left side-->
     <div class="col-sm-4">
@@ -46,16 +54,44 @@
       </ng-container>
     </div>
 
+    <!--Preparation - right side-->
     <div class="col-sm-8 border__left">
       <h4 class="mx-3">Instructions: </h4>
-      <ng-container *ngFor="let instruction of recipe.instructions; let i = index">
-        <div class="mx-3">
-          <p class="my-2 d-inline">{{i+1}} - </p>
-          <p class="my-2 d-inline">{{instruction}}</p>
-        </div>
-      </ng-container>
+      <div *ngIf="recipe.making.length > 1">
+        <h5 class="mx-4">Préparation: </h5>
+        <ng-container *ngFor="let instruction of recipe.making; let i = index">
+          <div class="mx-5">
+            <p class="my-2 d-inline">{{i + 1}} - </p>
+            <p class="my-2 d-inline">{{instruction}}</p>
+          </div>
+        </ng-container>
+      </div>
+
+      <div *ngIf="recipe.baking.length > 1">
+        <h5 class="mx-4">Cuisson: </h5>
+        <ng-container *ngFor="let instruction of recipe.baking; let i = index">
+          <div class="mx-5">
+            <p class="my-2 d-inline">{{i + 1}} - </p>
+            <p class="my-2 d-inline">{{instruction}}</p>
+          </div>
+        </ng-container>
+      </div>
     </div>
 
+  </div>
+</div>
+
+<div class="modal fade" id="addRecipeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="addRecipeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-add-recipe></app-add-recipe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn__search" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 

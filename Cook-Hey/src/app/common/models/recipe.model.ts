@@ -1,5 +1,5 @@
 import {Difficulty} from "../common-services/enums/difficulty.enum";
-import {Ingredient} from "./ingredient.model";
+import {RecipesCategoriesEnum} from "../common-services/enums/recipes-categories.enum";
 
 export interface Recipe {
   id: string;
@@ -7,11 +7,14 @@ export interface Recipe {
   author: string;
   difficulty: Difficulty,
   duration: number,
-  ingredients: [Map<string, number>],
-  instructions: [string]
-}
 
-export interface ig{
-  name: string,
-  quantity: number
+
+  personNumber: number,
+  category: RecipesCategoriesEnum,
+
+
+  ingredients: [Map<string, number>],
+
+  making: [string],
+  baking: [string]
 }

@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RecipesService} from "../../common/common-services/http-services/recipes.service";
-import {AngularFirestore, DocumentSnapshot} from "@angular/fire/firestore";
-import {Ingredient} from "../../common/models/ingredient.model";
-import {Observable, of, pipe} from "rxjs";
-import {find, first, map, tap} from "rxjs/operators";
-import {IngredientsService} from "../../common/common-services/http-services/ingredients.service";
+import {Difficulty} from "../../common/common-services/enums/difficulty.enum";
 
 @Component({
   selector: 'app-recipes',

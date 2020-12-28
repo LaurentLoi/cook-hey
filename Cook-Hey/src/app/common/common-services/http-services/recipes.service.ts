@@ -20,11 +20,9 @@ export class RecipesService {
     this.recipes$ = (firestore.collection<Recipe>('recipes').valueChanges()).pipe(
       tap(recipes => {
         recipes.sort((a, b) => {
-
           if (a.id > b.id) {
             return 1;
           }
-
           if (a.id < b.id) {
             return -1;
           }
