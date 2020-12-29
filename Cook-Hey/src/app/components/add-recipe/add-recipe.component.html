@@ -88,15 +88,19 @@
 
     <!--INGREDIENTS-->
     <div class="form-group">
-      <label></label>
-      <button type="button" class="btn btn__add-ingredient" data-bs-toggle="modal" data-bs-target="#ingredientsModal" (click)="updateCheckboxes()">
-        Select ingredients
-      </button>
-      <!--<span class="text-danger"
-            *ngIf="recipeForm.get('ingredients').touched && !recipeForm.get('ingredients').valid">
-                  {{formsErrors.missingDifficulty}}
-                </span>-->
+      <app-ingredients-picker></app-ingredients-picker>
     </div>
+
+<!--    <div class="form-group">-->
+<!--      <label></label>-->
+<!--      <button type="button" class="btn btn__add-ingredient" data-bs-toggle="modal" data-bs-target="#ingredientsModal" (click)="updateCheckboxes()">-->
+<!--        Select ingredients-->
+<!--      </button>-->
+<!--      &lt;!&ndash;<span class="text-danger"-->
+<!--            *ngIf="recipeForm.get('ingredients').touched && !recipeForm.get('ingredients').valid">-->
+<!--                  {{formsErrors.missingDifficulty}}-->
+<!--                </span>&ndash;&gt;-->
+<!--    </div>-->
 
     <label></label>
     <div class="form-group">

@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { RecipeIngredientDisplayComponent } from './components/recipe-ingredient-display/recipe-ingredient-display.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
+import { IngredientsPickerComponent } from './components/ingredients-picker/ingredients-picker.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
     AddIngredientComponent,
     RecipesComponent,
     RecipeIngredientDisplayComponent,
-    AddRecipeComponent
+    AddRecipeComponent,
+    IngredientsPickerComponent
   ],
   imports: [
     BrowserModule,
