@@ -20,7 +20,7 @@
               required
               name="measureUnit"
               formControlName="measureUnit">
-        <option disabled>Select measure unit</option>
+        <option value="" disabled>Select measure unit</option>
         <option *ngFor="let pow of measureUnits.values()" [value]="pow">{{pow}}</option>
       </select>
       <span class="text-danger"

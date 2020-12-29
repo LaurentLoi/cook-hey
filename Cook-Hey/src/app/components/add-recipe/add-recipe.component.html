@@ -2,32 +2,106 @@
   <h2>Ajouter une recette: </h2>
   <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
 
+    <!--TITLE-->
     <div class="form-group">
-      <label for="name">Nom</label>
-      <input type="text" class="form-control" id="name"
+      <label for="title">Titre</label>
+      <input type="text" class="form-control" id="title"
              required
-             name="name"
-             placeholder="Name"
-             formControlName="name">
-      <span class="text-danger" *ngIf="recipeForm.get('name').touched && !recipeForm.get('name').valid">
-                    {{formsErrors.missingName}}
+             title="title"
+             placeholder="Title"
+             formControlName="title">
+      <span class="text-danger" *ngIf="recipeForm.get('title').touched && !recipeForm.get('title').valid">
+                    {{formsErrors.missingTitle}}
                 </span>
     </div>
 
+    <!--AUTHOR-->
     <div class="form-group">
-      <label for="measureUnit">Unité de mesure: </label>
-      <select class="form-control" id="measureUnit"
-              required
-              name="measureUnit"
-              formControlName="measureUnit">
-        <option disabled>Select measure unit</option>
-        <option *ngFor="let pow of categories.values()" [value]="pow">{{pow}}</option>
-      </select>
-      <span class="text-danger"
-            *ngIf="recipeForm.get('measureUnit').touched && !recipeForm.get('measureUnit').valid">
-                  {{formsErrors.missingMeasureUnit}}
+      <label for="author">Auteur</label>
+      <input type="text" class="form-control" id="author"
+             required
+             title="author"
+             placeholder="Author"
+             formControlName="author">
+      <span class="text-danger" *ngIf="recipeForm.get('author').touched && !recipeForm.get('author').valid">
+                    {{formsErrors.missingAuthor}}
                 </span>
     </div>
+
+    <!--CATEGORY-->
+    <div class="form-group">
+      <label for="category">Catégorie: </label>
+      <select class="form-control" id="category"
+              required
+              name="category"
+              formControlName="category">
+        <option value="" disabled>Select measure unit</option>
+        <option *ngFor="let category of categories.values()" [value]="category">{{category}}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="recipeForm.get('category').touched && !recipeForm.get('category').valid">
+                  {{formsErrors.missingCategory}}
+                </span>
+    </div>
+
+    <!--DURATION-->
+    <div class="form-group">
+      <label for="duration">Durée: </label>
+      <input type="number" class="form-control" id="duration"
+             required
+             title="duration"
+             placeholder="0"
+             formControlName="duration">
+      <span class="text-danger" *ngIf="recipeForm.get('duration').touched && !recipeForm.get('duration').valid">
+                    {{formsErrors.missingDuration}}
+                </span>
+    </div>
+
+    <!--DIFFICULTY-->
+    <div class="form-group">
+      <label for="difficulty">Difficulté: </label>
+      <select class="form-control" id="difficulty"
+              required
+              name="difficulty"
+              formControlName="difficulty">
+        <option value="" disabled>Select a difficulty level</option>
+        <option *ngFor="let difficulty of difficulty.values()" [value]="difficulty">{{difficulty}}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="recipeForm.get('difficulty').touched && !recipeForm.get('difficulty').valid">
+                  {{formsErrors.missingDifficulty}}
+                </span>
+    </div>
+
+    <!--PERSON-NUMBER-->
+    <div class="form-group">
+      <label for="personNumber">Nombre de personnes: </label>
+      <input type="number" class="form-control" id="personNumber"
+             required
+             title="personNumber"
+             placeholder="4"
+             formControlName="personNumber">
+      <span class="text-danger" *ngIf="recipeForm.get('personNumber').touched && !recipeForm.get('personNumber').valid">
+                    {{formsErrors.missingPersonNumber}}
+                </span>
+    </div>
+
+    <!--INGREDIENTS-->
+    <div class="form-group">
+      <label for="ingredients">Ingrédients: </label>
+      <select class="form-control" id="ingredients"
+              required
+              name="ingredients"
+              formControlName="ingredients">
+        <option value="" disabled>Select ingredients</option>
+        <option *ngFor="let ingredient of (ingredients$ | async)" [value]="ingredient">{{ingredient.name}}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="recipeForm.get('ingredients').touched && !recipeForm.get('ingredients').valid">
+                  {{formsErrors.missingDifficulty}}
+                </span>
+    </div>
+
     <label></label>
     <div class="form-group">
       <button class="form-control btn btn__add-object" type="submit" [disabled]="!recipeForm.valid">Ajouter</button>

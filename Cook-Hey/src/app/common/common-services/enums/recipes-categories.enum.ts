@@ -1,5 +1,5 @@
 export enum RecipesCategoriesEnum {
-  miseEnBouche = 'Mise en bouche',
+  aperitif = 'Apéritif',
   entree = 'Entrée',
   plat = 'Plat',
   dessert = 'Dessert'

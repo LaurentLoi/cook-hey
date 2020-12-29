@@ -9,14 +9,14 @@ import {Recipe} from "../../models/recipe.model";
 })
 export class RecipesService {
 
-  private readonly _recipes$ = new BehaviorSubject<unknown>(null);
+  //private readonly _recipes$ = new BehaviorSubject<unknown>(null);
   public readonly recipes$: Observable<Recipe[]>
 
   constructor(
     private firestore: AngularFirestore,
   ) {
-    // LOAD INGREDIENTS COLLECTION - SORTED BY ID
 
+    // LOAD INGREDIENTS COLLECTION - SORTED BY ID
     this.recipes$ = (firestore.collection<Recipe>('recipes').valueChanges()).pipe(
       tap(recipes => {
         recipes.sort((a, b) => {

@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BehaviorSubject, Observable, of} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {Ingredient} from "../../common/models/ingredient.model";
 import {AngularFirestore} from "@angular/fire/firestore";
-import {filter, first} from "rxjs/operators";
-import {IngredientsService} from "../../common/common-services/http-services/ingredients.service";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-recipe-ingredient-display',

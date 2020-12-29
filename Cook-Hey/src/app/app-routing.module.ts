@@ -5,6 +5,7 @@ import {RootComponent} from "./pages/root/root.component";
 import {IndexComponent} from "./pages/index/index.component";
 import {IngredientsComponent} from "./pages/ingredients/ingredients.component";
 import {RecipesComponent} from "./pages/recipes/recipes.component";
+import {AddRecipeComponent} from "./components/add-recipe/add-recipe.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'recipes',
         component: RecipesComponent
+      },
+      {
+        path: 'recipes/add',
+        component: AddRecipeComponent
       }
     ]
   }
