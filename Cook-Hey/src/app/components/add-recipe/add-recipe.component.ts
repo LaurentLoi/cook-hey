@@ -84,4 +84,11 @@ export class AddRecipeComponent implements OnInit {
 
   }
 
+  submitIngredients() {
+
+  }
+
+  updateCheckboxes() {
+
+  }
 }

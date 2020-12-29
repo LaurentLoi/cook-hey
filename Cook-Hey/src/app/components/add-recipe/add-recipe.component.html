@@ -88,18 +88,14 @@
 
     <!--INGREDIENTS-->
     <div class="form-group">
-      <label for="ingredients">Ingrédients: </label>
-      <select class="form-control" id="ingredients"
-              required
-              name="ingredients"
-              formControlName="ingredients">
-        <option value="" disabled>Select ingredients</option>
-        <option *ngFor="let ingredient of (ingredients$ | async)" [value]="ingredient">{{ingredient.name}}</option>
-      </select>
-      <span class="text-danger"
+      <label></label>
+      <button type="button" class="btn btn__add-ingredient" data-bs-toggle="modal" data-bs-target="#ingredientsModal" (click)="updateCheckboxes()">
+        Select ingredients
+      </button>
+      <!--<span class="text-danger"
             *ngIf="recipeForm.get('ingredients').touched && !recipeForm.get('ingredients').valid">
                   {{formsErrors.missingDifficulty}}
-                </span>
+                </span>-->
     </div>
 
     <label></label>
@@ -109,3 +105,34 @@
   </form>
 </div>
 
+<!--MODAL INGREDIENTS-->
+<div class="modal fade" id="ingredientsModal" tabindex="-1" role="dialog" aria-labelledby="ingredientsModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title title title--small" id="exampleModalLongTitle">Select ingredients</h5>
+        <button type="button" class="close btn__add" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <!--<input class="input input&#45;&#45;search input&#45;&#45;wimg" placeholder="Search ..." type="search" [(ngModel)]="searchWord" (input)="search(searchWord)">-->
+
+        <ul class="">
+          <li class="" *ngFor="let ingredient of ingredients$ | async">
+              <label class="" for="{{ingredient.name}}{{ingredient.id}}">
+                <span class="">{{ingredient.name}}</span>
+                <input [attr.data-user]="ingredient.id" type="checkbox" id="{{ingredient.name}}{{ingredient.id}}" name="ingredient" value="{{ingredient.name}}{{ingredient.id}}">
+                <span class="checkmark"></span>
+              </label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn__add" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn__add" data-bs-dismiss="modal" (click)="submitIngredients()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
