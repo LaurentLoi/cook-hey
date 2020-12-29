@@ -1,0 +1,27 @@
+<div class="col-12 mt-3" *ngIf="(ingredients$ | async) as ingredients">
+    <div class="row mx-auto d-flex justify-content-around ingredient__menu overflow-auto border__bottom">
+        <div class="custom__col-6 border__base my-3">
+            <ng-container *ngFor="let ingredient of ingredients">
+                <div class="border__base mx-1 ingredient__picker bg__ternary text__center"
+                     (click)="addIngredient(ingredient)">
+                    {{ingredient.name}}
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="custom__col-6 border__base my-3">
+            <div *ngFor="let ingredient of selectedIngredients" class="d-flex justify-content-center">
+                <div class="border__base my-1 ingredient__picker bg__ternary text__center col-6"
+                     (click)="removeIngredient(ingredient)">
+                    {{ingredient.name}}
+                </div>
+                <div class="col-5 mx-2">
+                    <p class="m-0">
+                        <input type="number" id="{{ingredient.name}}Measure" class="w-50 my-2">
+                        {{ingredient.measureUnit}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
